@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "166300344321",
+    "project_id": "vpd-bank-app",
+    "storage_bucket": "vpd-bank-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166300344321:android:3ee34af305cb36737ea000",
+        "android_client_info": {
+          "package_name": "com.joeydalu.vpd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166300344321-9519l86dpvv7rsppl7bqpieh2fs0tu1s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joeydalu.vpd",
+            "certificate_hash": "eba3113e03f07cdc340e7883fd1c31bf8b227e9d"
+          }
+        },
+        {
+          "client_id": "166300344321-4rgmhk3o594o47sv2erthl1tq0q5qehv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3NAFYlpM00ehcAPkc1EiCUfnPFXXDF9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166300344321-4rgmhk3o594o47sv2erthl1tq0q5qehv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

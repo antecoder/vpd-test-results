@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">@color/white</color>
+    <color name="purple_500">@color/black</color>
+    <color name="purple_700">@color/black</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="grey">#AAAAAA</color>
+    <color name="grey_2">#CCCCCC</color>
+    <color name="grey_3">#EEEEEE</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="purple">@color/purple_500</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="edt_hint_light">#AAAAAA</color>
+    <color name="white_half">#80FFFFFF</color>
+    <color name="vpd_green">#54BD68</color>
+    <color name="vpd_purple">#012E45</color>
+    <color name="vpd_purple_half">#012E45</color>
+    <color name="vpd_blue">#62C0EC</color>
+</resources>
