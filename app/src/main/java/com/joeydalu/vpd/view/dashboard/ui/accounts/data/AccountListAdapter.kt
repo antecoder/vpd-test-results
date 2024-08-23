@@ -1,4 +1,4 @@
-package com.joeydalu.vpd.view.accounts.data
+package com.joeydalu.vpd.view.dashboard.ui.accounts.data
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

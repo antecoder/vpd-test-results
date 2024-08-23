@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_accounts">
+
+    <fragment
+        android:id="@+id/navigation_accounts"
+        android:name="com.joeydalu.vpd.view.dashboard.ui.accounts.AccountListFragment"
+        android:label="@string/accounts"
+        tools:layout="@layout/fragment_account_list" />
+
+    <fragment
+        android:id="@+id/navigation_transactions"
+        android:name="com.joeydalu.vpd.view.dashboard.ui.transactions.TransactionListFragment"
+        android:label="@string/transactions"
+        tools:layout="@layout/fragment_transaction_list" />
+
+</navigation>

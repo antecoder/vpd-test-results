@@ -1,4 +1,4 @@
-package com.joeydalu.vpd.view.transactions.data
+package com.joeydalu.vpd.view.dashboard.ui.transactions.data
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

@@ -13,7 +13,7 @@ import com.joeydalu.vpd.data.model.User
  * Room database implementation for local storage
  * @author Joseph Dalughut
  */
-@Database(entities = [User::class, Account::class], version = 1)
+@Database(entities = [Account::class, Transaction::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 

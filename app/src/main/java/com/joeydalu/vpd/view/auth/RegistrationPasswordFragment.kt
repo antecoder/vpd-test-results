@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.joeydalu.vpd.R
 import com.joeydalu.vpd.databinding.FragmentRegistrationPasswordBinding
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
 import com.joeydalu.vpd.util.hideKeyboard
 import com.joeydalu.vpd.util.showSnackbar
-import com.joeydalu.vpd.view.accounts.AccountListActivity
+import com.joeydalu.vpd.view.dashboard.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -129,11 +128,10 @@ class RegistrationPasswordFragment : BaseAuthFragment() {
                 }
             }
         }
-
     }
 
     private fun navigateToDashboard() {
-        val intent = Intent(requireActivity(), AccountListActivity::class.java)
+        val intent = Intent(requireActivity(), MainActivity::class.java)
         startActivity(intent)
         requireActivity().finish()
     }

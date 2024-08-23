@@ -1,4 +1,4 @@
-package com.joeydalu.vpd.view.accounts
+package com.joeydalu.vpd.view.dashboard.ui.transactions
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -6,32 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.joeydalu.vpd.databinding.FragmentAccountListBinding
-import com.joeydalu.vpd.view.accounts.data.AccountListAdapter
+import com.joeydalu.vpd.databinding.FragmentTransactionListBinding
+import com.joeydalu.vpd.view.dashboard.ui.transactions.data.TransactionListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
 /**
- * A [Fragment] which displays the list of accounts in the local database
+ * A [Fragment] which displays the list of [Transaction]'s in the local database
  */
 @AndroidEntryPoint
-class AccountListFragment : Fragment() {
+class TransactionListFragment : Fragment() {
 
     companion object {
-        fun newInstance() = AccountListFragment()
+        fun newInstance() = TransactionListFragment()
     }
 
-    private lateinit var binding: FragmentAccountListBinding
-    private val viewModel: AccountListViewModel by viewModels()
+    private lateinit var binding: FragmentTransactionListBinding
+    private val viewModel: TransactionListViewModel by viewModels()
 
-    private lateinit var adapter: AccountListAdapter
+    private lateinit var adapter: TransactionListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentAccountListBinding.inflate(inflater)
+        binding = FragmentTransactionListBinding.inflate(inflater)
         return binding.root
     }
 
@@ -42,14 +42,14 @@ class AccountListFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        adapter = AccountListAdapter { account ->
+        adapter = TransactionListAdapter { account ->
 
         }
         binding.recycler.adapter = adapter
     }
 
     private fun observeModel() {
-        viewModel.accounts.observe(viewLifecycleOwner) {accounts ->
+        viewModel.transactions.observe(viewLifecycleOwner) {accounts ->
             adapter.items = accounts
         }
     }

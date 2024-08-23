@@ -8,19 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.joeydalu.vpd.R
 import com.joeydalu.vpd.databinding.FragmentLoginBinding
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginResult
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.joeydalu.vpd.util.hideKeyboard
 import com.joeydalu.vpd.util.showSnackbar
-import com.joeydalu.vpd.view.accounts.AccountListActivity
+import com.joeydalu.vpd.view.dashboard.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -125,7 +117,7 @@ class LoginFragment : BaseAuthFragment() {
     }
 
     private fun navigateToDashboard() {
-        val intent = Intent(requireActivity(), AccountListActivity::class.java)
+        val intent = Intent(requireActivity(), MainActivity::class.java)
         startActivity(intent)
         getAuthActivity()?.finish()
     }

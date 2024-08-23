@@ -1,7 +1,6 @@
-package com.joeydalu.vpd.view.accounts.data
+package com.joeydalu.vpd.view.dashboard.ui.accounts.data
 
 import android.annotation.SuppressLint
-import android.icu.util.CurrencyAmount
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.joeydalu.vpd.data.model.Account

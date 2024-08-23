@@ -4,15 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.joeydalu.vpd.view.accounts.AccountListActivity
 import com.joeydalu.vpd.view.auth.LandingPageActivity
-import com.joeydalu.vpd.view.theme.BorderlessTheme
+import com.joeydalu.vpd.view.dashboard.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -34,7 +29,7 @@ class SplashActivity : ComponentActivity() {
         splashViewModel.authState.observe(this) { state ->
             when (state) {
                 SplashViewModel.AuthState.loggedIn -> {
-                    val intent = Intent(this, AccountListActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

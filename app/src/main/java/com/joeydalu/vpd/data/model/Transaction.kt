@@ -19,8 +19,15 @@ import kotlinx.parcelize.Parcelize
 data class Transaction (
     @PrimaryKey val id: String,
     val amount: Int = 0,
-    @Embedded @ColumnInfo("source_account") val sourceAccount: Account,
-    @Embedded @ColumnInfo("destination_account") val destinationAccount: Account,
+
+    @ColumnInfo("source_account_id") val sourceAccountId: Int,
+    @ColumnInfo("source_account_name") val sourceAccountName: String,
+    @ColumnInfo("source_account_number") val sourceAccountNumber: String,
+
+    @ColumnInfo("dest_account_id") val destAccountId: Int,
+    @ColumnInfo("dest_account_name") val destAccountName: String,
+    @ColumnInfo("dest_account_number") val destAccountNumber: String,
+
     @ColumnInfo("currency_code") val currencyCode: String,
 
     // Save in [Timestamp] format for firebase
@@ -29,4 +36,3 @@ data class Transaction (
     @ColumnInfo(name = "transaction_reference") val transactionReference: String
 
 ): Parcelable
-
