@@ -3,6 +3,7 @@ package com.joeydalu.vpd.view.auth
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.joeydalu.vpd.domain.usecase.auth.LoginRequest
@@ -13,7 +14,12 @@ import com.joeydalu.vpd.domain.usecase.auth.SignupUser
 import com.joeydalu.vpd.util.isValidEmail
 import com.joeydalu.vpd.util.mutable
 import com.joeydalu.vpd.auth.Authenticator
+import com.joeydalu.vpd.data.database.AppDatabase
+import com.joeydalu.vpd.data.model.Account
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -22,7 +28,7 @@ import javax.inject.Inject
  * @author Joseph Dalughut
  */
 @HiltViewModel
-class AuthViewModel @Inject constructor(val authenticator: Authenticator): ViewModel() {
+class AuthViewModel @Inject constructor(val authenticator: Authenticator, val database: AppDatabase): ViewModel() {
 
     val errorState: LiveData<ErrorState> = MutableLiveData<ErrorState>()
     val events: LiveData<Event> = MutableLiveData<Event>()
@@ -146,7 +152,12 @@ class AuthViewModel @Inject constructor(val authenticator: Authenticator): ViewM
         events.mutable()?.postValue(Event.loginBegan)
         val loginRequest = LoginRequest(email, password)
         LoginUser().execute(loginRequest, {
-            events.mutable()?.postValue(Event.loginSuccess)
+            viewModelScope.launch {
+                events.mutable()?.postValue(Event.loginSuccess)
+                // seed the db
+                seedDatabase()
+                events.mutable()?.postValue(Event.navDashboard)
+            }
         }, {
             it.printStackTrace()
             // TODO: Handle error codes properly
@@ -159,13 +170,22 @@ class AuthViewModel @Inject constructor(val authenticator: Authenticator): ViewM
 
         val signupRequest = SignupRequest(name, email, password)
         SignupUser().execute(signupRequest, {
-            events.mutable()?.postValue(Event.registrationSuccess)
+            viewModelScope.launch {
+                events.mutable()?.postValue(Event.registrationSuccess)
+                // seed the db
+                seedDatabase()
+                events.mutable()?.postValue(Event.navDashboard)
+            }
         }, {
             // TODO: Handle error codes properly
             it.printStackTrace()
             events.mutable()?.postValue(Event.registrationError)
         })
 
+    }
+
+    private suspend fun seedDatabase() {
+        Account.Companion.Factory().seed(database)
     }
 
     /**

@@ -20,6 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.joeydalu.vpd.util.hideKeyboard
 import com.joeydalu.vpd.util.showSnackbar
+import com.joeydalu.vpd.view.accounts.AccountListActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -124,7 +125,9 @@ class LoginFragment : BaseAuthFragment() {
     }
 
     private fun navigateToDashboard() {
-        // TODO
+        val intent = Intent(requireActivity(), AccountListActivity::class.java)
+        startActivity(intent)
+        getAuthActivity()?.finish()
     }
 
     private fun showWorkingIndicator(isWorking: Boolean) {

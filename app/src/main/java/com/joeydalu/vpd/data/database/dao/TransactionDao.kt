@@ -6,17 +6,17 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.joeydalu.vpd.data.model.Account
+import com.joeydalu.vpd.data.model.Transaction
 
 /**
  * Data-access-object for interacting with [Account]'s saved on the devices local database
  * @author Joseph Dalughut
  */
 @Dao
-interface AccountDao {
+interface TransactionDao {
 
     /**
-     * Counts the list of [Account] objects in the database.
+     * Counts the list of [Transaction] objects in the database.
      * @return An [Integer] denoting the number of accounts in the database.
      */
     @Query("SELECT COUNT(*) FROM account")
@@ -26,35 +26,35 @@ interface AccountDao {
      * Fetches a list of [Account] objects from the local database.
      * @return a list of [Account] objects.
      */
-    @Query("SELECT * FROM account")
-    suspend fun list(): List<Account>
+    @Query("SELECT * FROM `transaction`")
+    suspend fun list(): List<Transaction>
 
     /**
      * Fetches a [LiveData] list of [Account] objects from the database.
      * @return a [LiveData] list of [Account] objects.
      */
-    @Query("SELECT * FROM account")
-    fun liveList(): LiveData<List<Account>>
+    @Query("SELECT * FROM `transaction`")
+    fun liveList(): LiveData<List<Transaction>>
 
     /**
-     * Inserts an [Account] into the database.
+     * Inserts an [Transaction] into the database.
      * @return an [Integer] denoting the number of successful inserts.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(account: Account)
+    suspend fun insert(transaction: Transaction)
 
     /**
-     * Inserts a list of [Account]'s into the database.
+     * Inserts a list of [Transaction]'s into the database.
      * @return an [Integer] denoting the number of successful inserts.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(accounts: List<Account>)
+    suspend fun insertAll(transactions: List<Transaction>)
 
     /**
-     * Deletes an [Account] from the database.
+     * Deletes an [Transaction] from the database.
      * @return an [Integer] denoting the number of successful deletes.
      */
     @Delete
-    suspend fun delete(account: Account)
+    suspend fun delete(transaction: Transaction)
 
 }

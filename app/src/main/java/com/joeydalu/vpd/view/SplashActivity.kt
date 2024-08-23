@@ -10,13 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
+import com.joeydalu.vpd.view.accounts.AccountListActivity
 import com.joeydalu.vpd.view.auth.LandingPageActivity
 import com.joeydalu.vpd.view.theme.BorderlessTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class SplashActivity : ComponentActivity() {
 
     private val splashViewModel: SplashViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +34,9 @@ class MainActivity : ComponentActivity() {
         splashViewModel.authState.observe(this) { state ->
             when (state) {
                 SplashViewModel.AuthState.loggedIn -> {
-
+                    val intent = Intent(this, AccountListActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 SplashViewModel.AuthState.loggedOut -> {
                     startActivity(Intent(this, LandingPageActivity::class.java))
@@ -48,20 +51,4 @@ class MainActivity : ComponentActivity() {
 
     }
 
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    BorderlessTheme {
-        Greeting("Android")
-    }
 }

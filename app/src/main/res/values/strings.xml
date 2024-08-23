@@ -64,4 +64,8 @@
     <string name="tracking_config_description">You\'ll find live statistics on your dashboard based on your selection</string>
     <string name="welcome_back">Welcome back\n%s!</string>
     <string name="restoring_backup_hint">Sit tight while we restore your backed-up data.</string>
+    <string name="balance">balance</string>
+    <string name="accounts">Accounts</string>
+    <string name="new_transfer">New Transfer</string>
+    <string name="transactions">Transactions</string>
 </resources>

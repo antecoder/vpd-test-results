@@ -2,8 +2,10 @@ package com.joeydalu.vpd.data.model
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable.Constructor
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.parcelize.Parcelize

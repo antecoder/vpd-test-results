@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Vpd" parent="@style/Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.Vpd" parent="@style/Theme.Material3.DayNight.NoActionBar">
+
+    </style>
 
     <style name="Theme.Vpd.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/bank</item>

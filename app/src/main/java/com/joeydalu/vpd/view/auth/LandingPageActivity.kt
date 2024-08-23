@@ -44,7 +44,7 @@ class LandingPageActivity : AppCompatActivity() {
         }
     }
 
-    // attach ui acctions
+    // attach ui actions
     private fun attachActions() {
         binding.btnLogin.setOnClickListener {
             startAuthActivity(true)

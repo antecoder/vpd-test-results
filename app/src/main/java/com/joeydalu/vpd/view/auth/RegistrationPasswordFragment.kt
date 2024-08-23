@@ -1,5 +1,6 @@
 package com.joeydalu.vpd.view.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
 import com.joeydalu.vpd.util.hideKeyboard
 import com.joeydalu.vpd.util.showSnackbar
+import com.joeydalu.vpd.view.accounts.AccountListActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -131,7 +133,9 @@ class RegistrationPasswordFragment : BaseAuthFragment() {
     }
 
     private fun navigateToDashboard() {
-        // TODO
+        val intent = Intent(requireActivity(), AccountListActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     private fun showWorkingIndicator(isWorking: Boolean) {
