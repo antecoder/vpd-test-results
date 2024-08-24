@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.joeydalu.vpd.data.model.Transaction
 
 /**
@@ -38,21 +39,24 @@ interface TransactionDao {
 
     /**
      * Inserts an [Transaction] into the database.
-     * @return an [Integer] denoting the number of successful inserts.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(transaction: Transaction)
+    fun insert(transaction: Transaction)
 
     /**
      * Inserts a list of [Transaction]'s into the database.
-     * @return an [Integer] denoting the number of successful inserts.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(transactions: List<Transaction>)
 
     /**
+     * Updates a [Transaction] in the database.
+     */
+    @Update
+    fun update(transaction: Transaction)
+
+    /**
      * Deletes an [Transaction] from the database.
-     * @return an [Integer] denoting the number of successful deletes.
      */
     @Delete
     suspend fun delete(transaction: Transaction)

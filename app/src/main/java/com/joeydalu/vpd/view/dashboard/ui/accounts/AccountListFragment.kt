@@ -12,12 +12,20 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 /**
- * A [Fragment] which displays the list of accounts in the local database
+ * A [Fragment] which displays the list of [Account] objects in the local database
+ *
+ * @author Joseph Dalughut
  */
 @AndroidEntryPoint
 class AccountListFragment : Fragment() {
 
     companion object {
+
+        /**
+         * Use this to create a new instance of the [AccountListFragment]
+         *
+         * @return an [AccountListFragment] instance
+         */
         fun newInstance() = AccountListFragment()
     }
 
@@ -25,10 +33,6 @@ class AccountListFragment : Fragment() {
     private val viewModel: AccountListViewModel by viewModels()
 
     private lateinit var adapter: AccountListAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentAccountListBinding.inflate(inflater)
@@ -43,13 +47,21 @@ class AccountListFragment : Fragment() {
 
     private fun setupAdapter() {
         adapter = AccountListAdapter { account ->
-
+            // Do something like display the account here
         }
         binding.recycler.adapter = adapter
     }
 
     private fun observeModel() {
+        // Display accounts we receive.
         viewModel.accounts.observe(viewLifecycleOwner) {accounts ->
+
+            // hide or show empty state
+            if  (accounts.isNotEmpty()) {
+                binding.vwEmptyAccounts.visibility = View.GONE
+            } else {
+                binding.vwEmptyAccounts.visibility = View.VISIBLE
+            }
             adapter.items = accounts
         }
     }

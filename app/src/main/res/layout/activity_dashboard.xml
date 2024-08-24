@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
@@ -15,6 +15,7 @@
         android:background="@color/vpd_purple"
         android:layout_height="?attr/actionBarSize"
         android:title="@string/accounts"
+        style="@style/ToolbarTheme"
         android:titleTextColor="@color/white"
         />
 

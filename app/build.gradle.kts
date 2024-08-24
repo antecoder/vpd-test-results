@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     val room_version = "2.6.1"
     val paging_version = "3.3.2"
 
@@ -100,17 +101,6 @@ dependencies {
     implementation("com.github.thang2162:Android-ScalableVideoView:v1.1.1")
     implementation("androidx.multidex:multidex:2.0.1")
     implementation("com.github.razir.progressbutton:progressbutton:2.1.0")
-    implementation("com.squareup.picasso:picasso:2.71828")
-    implementation("com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0")
-    implementation("com.google.code.gson:gson:2.10")
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-    implementation("com.facebook.android:facebook-login:17.0.0")
-    implementation("com.google.android.gms:play-services-auth:21.1.1")
-    implementation("com.google.android.gms:play-services-location:21.3.0")
-    implementation(libs.commons.io)
-    implementation(libs.ccp)
-    implementation(libs.android.country.picker)
-    implementation(libs.dotsindicator)
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
@@ -124,6 +114,11 @@ dependencies {
     implementation("androidx.paging:paging-runtime:$paging_version")
     testImplementation("androidx.paging:paging-common:$paging_version")
 
+    testImplementation("org.mockito:mockito-core:5.12.0")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1") {
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-debug")
+    }
 
 }
 

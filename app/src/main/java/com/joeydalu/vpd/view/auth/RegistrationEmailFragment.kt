@@ -9,16 +9,8 @@ import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import com.joeydalu.vpd.R
 import com.joeydalu.vpd.databinding.FragmentRegistrationEmailBinding
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginResult
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.joeydalu.vpd.util.hideKeyboard
 import com.joeydalu.vpd.util.showSnackbar
 
@@ -40,18 +32,13 @@ class RegistrationEmailFragment : BaseAuthFragment() {
          *
          * @return A new instance of fragment RegistrationFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() = RegistrationEmailFragment()
     }
 
     lateinit var binding: FragmentRegistrationEmailBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentRegistrationEmailBinding.inflate(inflater)
         return binding.root
     }
@@ -85,7 +72,7 @@ class RegistrationEmailFragment : BaseAuthFragment() {
     }
 
     private fun observeModel() {
-        val authViewModel = getViewModel();
+        val authViewModel = getViewModel()
 
         // observe and handle events
         authViewModel?.events?.observe(viewLifecycleOwner) { event ->

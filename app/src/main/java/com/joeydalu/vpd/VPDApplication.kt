@@ -1,4 +1,4 @@
-package com.joeydalu.vpd.core
+package com.joeydalu.vpd
 
 import android.app.Application
 import androidx.multidex.MultiDex

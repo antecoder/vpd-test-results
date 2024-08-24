@@ -73,4 +73,24 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="create_transfer">Create Transfer</string>
+    <string name="transfer_description">Please fill in the form to perform your transfer.</string>
+    <string name="source_account">Source Account</string>
+    <string name="dest_account">Destination account</string>
+    <string name="ammount">Ammount</string>
+    <string name="ammount_hint">0.00</string>
+    <string name="confirm_transfer">Confirm Transfer</string>
+    <string name="confirm_transfer_message">"You are about to transfer %1$s from %2$s to %3$s."</string>
+    <string name="success_transfer_message">"You've just transferred %1$s from %2$s to %3$s."</string>
+    <string name="confirm">Confirm</string>
+    <string name="transfer_currency_mismatch">Please choose currencies that match each other as we can\'t convert for now.</string>
+    <string name="transfer_source_zero">Please pick a source with some money in the account.</string>
+    <string name="transfer_source_missing">Please pick a source account.</string>
+    <string name="transfer_destination_missing">Please pick a destination account.</string>
+    <string name="transfer_amount_missing">Please enter an amount</string>
+    <string name="transfer_amount_less">Please enter an amount less than in the source account.</string>
+    <string name="success">Success</string>
+    <string name="back">Back Home</string>
+    <string name="hint_empty_transfers">Your recent transfers will be here</string>
+    <string name="hint_empty_accounts">Accounts you add will be here.</string>
 </resources>

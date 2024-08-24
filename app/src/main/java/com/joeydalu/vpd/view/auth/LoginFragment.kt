@@ -37,11 +37,7 @@ class LoginFragment : BaseAuthFragment() {
 
     lateinit var binding: FragmentLoginBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
@@ -66,7 +62,7 @@ class LoginFragment : BaseAuthFragment() {
     }
 
     private fun observeModel() {
-        val authViewModel = getViewModel();
+        val authViewModel = getViewModel()
 
         //observe and handle ui-events
         authViewModel?.events?.observe(viewLifecycleOwner) { event ->
@@ -129,7 +125,6 @@ class LoginFragment : BaseAuthFragment() {
             binding.edtEmailAddress.isEnabled = false
             binding.edtPassword.isEnabled = false
             binding.btnLogin.isEnabled = false
-            binding.btnForgotPassword.isEnabled = false
             binding.btnClose.isEnabled = false
 
             binding.btnLogin.showProgress {
@@ -142,7 +137,6 @@ class LoginFragment : BaseAuthFragment() {
             binding.edtEmailAddress.isEnabled = true
             binding.edtPassword.isEnabled = true
             binding.btnLogin.isEnabled = true
-            binding.btnForgotPassword.isEnabled = true
             binding.btnClose.isEnabled = true
 
             binding.btnLogin.hideProgress(R.string.login)

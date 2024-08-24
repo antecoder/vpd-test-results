@@ -4,11 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.facebook.login.LoginResult
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.joeydalu.vpd.domain.usecase.auth.LoginRequest
 import com.joeydalu.vpd.domain.usecase.auth.LoginUser
-import com.joeydalu.vpd.domain.usecase.auth.ResetPassword
 import com.joeydalu.vpd.domain.usecase.auth.SignupRequest
 import com.joeydalu.vpd.domain.usecase.auth.SignupUser
 import com.joeydalu.vpd.util.isValidEmail
@@ -17,8 +14,6 @@ import com.joeydalu.vpd.auth.Authenticator
 import com.joeydalu.vpd.data.database.AppDatabase
 import com.joeydalu.vpd.data.model.Account
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -148,7 +143,7 @@ class AuthViewModel @Inject constructor(val authenticator: Authenticator, val da
     }
 
 
-    private fun beginLogin(email: String, password: String) {
+    fun beginLogin(email: String, password: String) {
         events.mutable()?.postValue(Event.loginBegan)
         val loginRequest = LoginRequest(email, password)
         LoginUser().execute(loginRequest, {
@@ -165,7 +160,7 @@ class AuthViewModel @Inject constructor(val authenticator: Authenticator, val da
         })
     }
 
-    private fun beginRegistration(name: String, email: String, password: String) {
+    fun beginRegistration(name: String, email: String, password: String) {
         events.mutable()?.postValue(Event.registrationBegan)
 
         val signupRequest = SignupRequest(name, email, password)

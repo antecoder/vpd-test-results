@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.util.Patterns
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -38,6 +39,15 @@ fun Fragment.showSnackbar(messageRes: Int) {
     this.view?.let {
         Snackbar.make(it, messageRes, Snackbar.LENGTH_LONG).show()
     }
+}
+
+/**
+ * Shows a snackbar message
+ *
+ * @param messageRes The resource-id of the message to show.
+ */
+fun AppCompatActivity.showSnackbar(messageRes: Int, view: View) {
+    Snackbar.make(this, view, this.getText(messageRes), Snackbar.LENGTH_LONG).show()
 }
 
 /**
@@ -83,12 +93,12 @@ fun Fragment.hideKeyboard() = activity?.hideKeyboard()
 /**
  * Shows the soft-keyboard
  */
-fun Activity.showKeyboard() = WindowCompat.getInsetsController(window, window.decorView)?.show(WindowInsetsCompat.Type.ime())
+fun Activity.showKeyboard() = WindowCompat.getInsetsController(window, window.decorView).show(WindowInsetsCompat.Type.ime())
 
 /**
  * Hides the soft-keyboard
  */
-fun Activity.hideKeyboard() = WindowCompat.getInsetsController(window, window.decorView)?.hide(WindowInsetsCompat.Type.ime())
+fun Activity.hideKeyboard() = WindowCompat.getInsetsController(window, window.decorView).hide(WindowInsetsCompat.Type.ime())
 
 fun Context.getActivity(): Activity? {
     return when (this) {

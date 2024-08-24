@@ -17,7 +17,6 @@ import javax.inject.Inject
 @HiltViewModel
 class TransactionListViewModel @Inject constructor(val authenticator: Authenticator, val database: AppDatabase): ViewModel() {
 
-
     val transactions: LiveData<List<Transaction>> = database.transactionDao().liveList()
 
 }

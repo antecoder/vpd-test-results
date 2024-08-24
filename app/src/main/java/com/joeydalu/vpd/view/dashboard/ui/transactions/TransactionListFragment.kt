@@ -1,5 +1,6 @@
 package com.joeydalu.vpd.view.dashboard.ui.transactions
 
+import android.content.Intent
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.joeydalu.vpd.databinding.FragmentTransactionListBinding
 import com.joeydalu.vpd.view.dashboard.ui.transactions.data.TransactionListAdapter
+import com.joeydalu.vpd.view.transfers.TransferActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -26,10 +28,6 @@ class TransactionListFragment : Fragment() {
 
     private lateinit var adapter: TransactionListAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentTransactionListBinding.inflate(inflater)
         return binding.root
@@ -39,6 +37,12 @@ class TransactionListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupAdapter()
         observeModel()
+
+        // Start the transfer activity
+        binding.btnNewTransfer.setOnClickListener {
+            val intent = Intent(requireActivity(), TransferActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupAdapter() {
@@ -49,8 +53,15 @@ class TransactionListFragment : Fragment() {
     }
 
     private fun observeModel() {
-        viewModel.transactions.observe(viewLifecycleOwner) {accounts ->
-            adapter.items = accounts
+        viewModel.transactions.observe(viewLifecycleOwner) { transactions ->
+
+            // hide or show empty state
+            if  (transactions.isNotEmpty()) {
+                binding.vwEmptyTransfers.visibility = View.GONE
+            } else {
+                binding.vwEmptyTransfers.visibility = View.VISIBLE
+            }
+            adapter.items = transactions
         }
     }
 

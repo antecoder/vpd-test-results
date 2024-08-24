@@ -125,23 +125,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="@string/forgot_password"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layPassword"
-            android:padding="6dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/josefin_sans_semi_bold"
-            />
-
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
@@ -155,70 +138,13 @@
             android:textSize="16sp"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/josefin_sans_medium"
-            app:layout_constraintTop_toBottomOf="@id/btnForgotPassword"
+            app:layout_constraintTop_toBottomOf="@id/layPassword"
             app:layout_constraintEnd_toEndOf="parent"
             android:minWidth="0dp"
             android:layout_marginStart="8dp"
             />
-
-        <TextView
-            android:id="@+id/txtContinueUsing"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/btnLogin"
-            android:gravity="center"
-            android:fontFamily="@font/josefin_sans_medium"
-            android:textColor="@color/grey"
-            app:layout_constraintEnd_toEndOf="@id/btnLogin"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/btnLogin"
-            android:text="@string/continue_using"
-            />
-
-        <LinearLayout
-            android:id="@+id/laySocial"
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@id/btnLogin"
-            app:layout_constraintTop_toBottomOf="@id/txtContinueUsing"
-            app:layout_constraintEnd_toEndOf="@id/btnLogin"
-            android:gravity="center"
-            android:layout_marginTop="16dp"
-            android:layout_height="wrap_content">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/vwFacebook"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_auth_facebook"
-                android:background="@color/transparent"
-                android:foreground="?attr/selectableItemBackground"
-                />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/vwGoogle"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_auth_google"
-                android:layout_marginStart="16dp"
-                android:background="@color/transparent"
-                android:foreground="?attr/selectableItemBackground" />
-
-        </LinearLayout>
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btnFacebookLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="invisible"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

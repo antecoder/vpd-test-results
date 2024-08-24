@@ -5,7 +5,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.joeydalu.vpd.R
-import com.facebook.FacebookSdk
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -32,8 +31,6 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FacebookSdk.sdkInitialize(applicationContext)
-        FacebookSdk.setAutoInitEnabled(true)
         setContentView(R.layout.activity_auth)
 
         val loginMode = intent.extras?.getBoolean(ARG_LOGIN_MODE, false)

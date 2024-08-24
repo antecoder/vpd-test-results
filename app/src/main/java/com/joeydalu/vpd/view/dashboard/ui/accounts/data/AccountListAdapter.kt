@@ -10,6 +10,8 @@ import com.joeydalu.vpd.data.model.Account
 /**
  * A [RecyclerView.Adapter] that displays [Account]'s in a list
  *
+ * @param onItemSelect a listener for click callbacks of an [Account]
+ *
  * @see Account
  * @see AccountViewHolder
  */

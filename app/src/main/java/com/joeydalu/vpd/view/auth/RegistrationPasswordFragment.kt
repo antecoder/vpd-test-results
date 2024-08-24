@@ -59,7 +59,7 @@ class RegistrationPasswordFragment : BaseAuthFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentRegistrationPasswordBinding.inflate(layoutInflater)
         return binding.root
@@ -82,7 +82,7 @@ class RegistrationPasswordFragment : BaseAuthFragment() {
     }
 
     private fun observeModel() {
-        val authViewModel = getViewModel();
+        val authViewModel = getViewModel()
         authViewModel?.events?.observe(viewLifecycleOwner) { event ->
             when (event) {
                 AuthViewModel.Event.navBack -> requireActivity().onBackPressedDispatcher.onBackPressed()

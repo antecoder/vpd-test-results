@@ -24,7 +24,7 @@ class TransactionListAdapter(val onItemSelect: ((Transaction) -> Unit)?): Recycl
             notifyDataSetChanged()
         }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_account_view, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_transaction_view, parent, false)
         return TransactionViewHolder(view)
     }
 

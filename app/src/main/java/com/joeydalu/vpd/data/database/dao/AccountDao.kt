@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.joeydalu.vpd.data.model.Account
 
 /**
@@ -49,6 +50,12 @@ interface AccountDao {
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(accounts: List<Account>)
+
+    /**
+     * Updates a list of [Account]'s in the database
+     */
+    @Update
+    fun updateAll(accounts: List<Account>)
 
     /**
      * Deletes an [Account] from the database.

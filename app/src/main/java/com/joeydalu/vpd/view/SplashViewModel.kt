@@ -23,9 +23,7 @@ class SplashViewModel @Inject constructor(val authenticator: Authenticator, val 
     val authState: LiveData<AuthState> = MutableLiveData(AuthState.loading)
 
     init {
-        viewModelScope.launch {
-            checkUserLogin()
-        }
+        checkUserLogin()
     }
 
     private fun checkUserLogin() {
@@ -36,6 +34,7 @@ class SplashViewModel @Inject constructor(val authenticator: Authenticator, val 
                 Account.Companion.Factory().seed(database)
                 authState.mutable()?.postValue(AuthState.loggedIn)
             }
+
         } ?: run {
             authState.mutable()?.postValue(AuthState.loggedOut)
         }
