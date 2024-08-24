@@ -23,6 +23,8 @@ First you need to clone the repo/codebase on github either by zip or by cloning 
     \- If you use a device for development you can plug it in so you can use it to run the project
 *   Once the project is completely built, you can now run it.
 
+[Click here to see the demo video](https://drive.google.com/file/d/1ukaeV6NJVDRWvsBYpAvIZjDDCJq68WAj/view?usp=sharing)
+
 **Relevant notes**  
 Sometimes the app login might fail on an Emulator and this has been a known issue with regards to firebaseAuth and the emulator, so it might be best to work with an actual Android device to test.
 
