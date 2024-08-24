@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.FirebaseError
 import com.joeydalu.vpd.domain.usecase.auth.LoginRequest
 import com.joeydalu.vpd.domain.usecase.auth.LoginUser
 import com.joeydalu.vpd.domain.usecase.auth.SignupRequest
@@ -155,7 +156,6 @@ class AuthViewModel @Inject constructor(val authenticator: Authenticator, val da
             }
         }, {
             it.printStackTrace()
-            // TODO: Handle error codes properly
             events.mutable()?.postValue(Event.loginError)
         })
     }
@@ -172,7 +172,6 @@ class AuthViewModel @Inject constructor(val authenticator: Authenticator, val da
                 events.mutable()?.postValue(Event.navDashboard)
             }
         }, {
-            // TODO: Handle error codes properly
             it.printStackTrace()
             events.mutable()?.postValue(Event.registrationError)
         })

@@ -79,6 +79,7 @@ class TransferActivity : AppCompatActivity() {
                 TransferViewModel.ErrorEvent.errorDestinationMissing -> showSnackbar(R.string.transfer_destination_missing, binding.root)
                 TransferViewModel.ErrorEvent.errorAmountMissing -> showSnackbar(R.string.transfer_amount_missing, binding.root)
                 TransferViewModel.ErrorEvent.errorAmountLess -> showSnackbar(R.string.transfer_amount_less, binding.root)
+                TransferViewModel.ErrorEvent.errorSameUser -> showSnackbar(R.string.transfer_same_destination, binding.root)
             }
         }
     }

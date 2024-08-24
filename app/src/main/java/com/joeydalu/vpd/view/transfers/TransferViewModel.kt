@@ -79,6 +79,16 @@ class TransferViewModel @Inject constructor(val database: AppDatabase): ViewMode
             return
         }
 
+        if (amount.trim().isEmpty()) {
+            errors.mutable()?.postValue(ErrorEvent.errorAmountMissing)
+            return
+        }
+
+        if (sourceAccount!!.accountNumber == destinationAccount!!.accountNumber) {
+            errors.mutable()?.postValue(ErrorEvent.errorSameUser)
+            return
+        }
+
         // Check if amount is greater than 1
         val amountInt = amount.toInt()
         if (amountInt < 1) {
@@ -150,7 +160,8 @@ class TransferViewModel @Inject constructor(val database: AppDatabase): ViewMode
         errorSourceMissing,
         errorDestinationMissing,
         errorAmountMissing,
-        errorAmountLess
+        errorAmountLess,
+        errorSameUser
     }
 
 }

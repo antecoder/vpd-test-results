@@ -89,7 +89,7 @@ class RegistrationEmailFragment : BaseAuthFragment() {
                 }
                 AuthViewModel.Event.loginCanceled -> showWorkingIndicator(false)
                 AuthViewModel.Event.loginSuccess -> showWorkingIndicator(false)
-                AuthViewModel.Event.navDashboard -> navigateToDashboard()
+                AuthViewModel.Event.navDashboard -> {}
                 else -> {
                 }
             }
@@ -119,10 +119,6 @@ class RegistrationEmailFragment : BaseAuthFragment() {
             }
         }
 
-    }
-
-    private fun navigateToDashboard() {
-        // TODO
     }
 
     private fun showWorkingIndicator(isWorking: Boolean) {
